@@ -15,8 +15,9 @@ fgi = YAML(typ=["rt", "string"])
 fgi.indent(sequence=4, offset=2)
 fgi.preserve_quotes = True
 fgi.width = 4096
-
-
+fgi.Emitter.flow_seq_start = '[ '      # defaults to '['
+fgi.Emitter.flow_seq_end = ' ]'        # defaults to ']'
+fgi.Emitter.flow_seq_separator = ' ,'
 def dump_to_yaml(data: dict) -> str:
     def seq(*_):
         s = CommentedSeq(*_)
